@@ -1,0 +1,67 @@
+﻿variable_name               ,value        ,year      ,rank
+Base                        ,0.520789671  ,2019-2020 ,   1
+TV1 Spends                  ,0.349742922  ,2019-2020 ,   2
+Google Youtube Spends       ,0.02778571   ,2019-2020 ,   3
+Branded Paid Search Spends  ,0.016163229  ,2019-2020 ,   4
+OOH Spends                  ,0.008028357  ,2019-2020 ,   5
+Meta Spends                 ,0            ,2019-2020 ,   6
+Twitter Ad Spends           ,0            ,2019-2020 ,   7
+Tiktok Spends               ,0            ,2019-2020 ,   8
+TV2 Spends                  ,0            ,2019-2020 ,   9
+Competitor2 Ad Spend Impact ,-0.005196479 ,2019-2020 ,  11
+Competitor1 Ad Spend Impact ,-0.00229363  ,2019-2020 ,  10
+Base                        ,0.485454663  ,2020-2021 ,   1
+TV1 Spends                  ,0.175173391  ,2020-2021 ,   2
+Google Youtube Spends       ,0.066385434  ,2020-2021 ,   3
+OOH Spends                  ,0.00327342   ,2020-2021 ,   5
+Meta Spends                 ,0.004335476  ,2020-2021 ,   4
+Branded Paid Search Spends  ,0.00020362   ,2020-2021 ,   6
+Twitter Ad Spends           ,0            ,2020-2021 ,   7
+Tiktok Spends               ,0            ,2020-2021 ,   8
+TV2 Spends                  ,0            ,2020-2021 ,   9
+Competitor2 Ad Spend Impact ,-0.004589663 ,2020-2021 ,  10
+Competitor1 Ad Spend Impact ,-0.225584332 ,2020-2021 ,  11
+Base                        ,0.517193941  ,2021-2022 ,   1
+TV1 Spends                  ,0.089155662  ,2021-2022 ,   2
+Google Youtube Spends       ,0.038664784  ,2021-2022 ,   3
+Twitter Ad Spends           ,0.026464408  ,2021-2022 ,   4
+Branded Paid Search Spends  ,0.02107748   ,2021-2022 ,   5
+Meta Spends                 ,0.004411261  ,2021-2022 ,   6
+OOH Spends                  ,0.002996993  ,2021-2022 ,   7
+Tiktok Spends               ,0            ,2021-2022 ,   8
+Competitor2 Ad Spend Impact ,0            ,2021-2022 ,   9
+TV2 Spends                  ,0            ,2021-2022 ,  10
+Competitor1 Ad Spend Impact ,-0.22003547  ,2021-2022 ,  11
+Base                        ,0.60134919   ,2022-2023 ,   1
+TV2 Spends                  ,0.206939443  ,2022-2023 ,   2
+Twitter Ad Spends           ,0.102664866  ,2022-2023 ,   3
+Meta Spends                 ,0.020088117  ,2022-2023 ,   4
+Google Youtube Spends       ,0.004879177  ,2022-2023 ,   5
+Branded Paid Search Spends  ,0.00125704   ,2022-2023 ,   6
+OOH Spends                  ,9.92E-14     ,2022-2023 ,   7
+Tiktok Spends               ,0            ,2022-2023 ,   8
+Competitor1 Ad Spend Impact ,0            ,2022-2023 ,   9
+TV1 Spends                  ,0            ,2022-2023 ,  10
+Competitor2 Ad Spend Impact ,-0.011805126 ,2022-2023 ,  11
+Base                        ,0.619056165  ,2023-2024 ,   1
+TV2 Spends                  ,0.179328968  ,2023-2024 ,   2
+Branded Paid Search Spends  ,0.054216376  ,2023-2024 ,   3
+Tiktok Spends               ,0.044122486  ,2023-2024 ,   4
+Google Youtube Spends       ,0.023364541  ,2023-2024 ,   5
+Twitter Ad Spends           ,0.009252703  ,2023-2024 ,   6
+Meta Spends                 ,0.002831581  ,2023-2024 ,   7
+OOH Spends                  ,1.25E-29     ,2023-2024 ,   8
+Competitor1 Ad Spend Impact ,0            ,2023-2024 ,   9
+TV1 Spends                  ,0            ,2023-2024 ,  10
+Competitor2 Ad Spend Impact ,-0.006378889 ,2023-2024 ,  11
+Base                        ,0.530068584  ,2019-2024 ,   1
+TV1 Spends                  ,0.1255673    ,2019-2024 ,   2
+TV2 Spends                  ,0.071434488  ,2019-2024 ,   3
+Google Youtube Spends       ,0.03465042   ,2019-2024 ,   4
+Twitter Ad Spends           ,0.026396265  ,2019-2024 ,   5
+Branded Paid Search Spends  ,0.012446191  ,2019-2024 ,   6
+Meta Spends                 ,0.007483218  ,2019-2024 ,   7
+Tiktok Spends               ,0.005764648  ,2019-2024 ,   8
+OOH Spends                  ,0.001272178  ,2019-2024 ,   9
+Competitor2 Ad Spend Impact ,-0.005182633 ,2019-2024 ,  10
+Competitor1 Ad Spend Impact ,-0.094734076 ,2019-2024 ,  11

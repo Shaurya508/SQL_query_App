@@ -1,0 +1,2483 @@
+2024-07-25 16:48:52 [INFO] Question: Which are the top 5 countries by sales?
+2024-07-25 16:48:53 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 16:48:53 [INFO] Prompt ID: 722a2c47-50b8-4685-a1c5-574dc038d8bb
+2024-07-25 16:48:53 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 16:48:53 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 16:48:53 [INFO] Executing Step 1: CacheLookup
+2024-07-25 16:48:53 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 16:48:55 [INFO] Using prompt: <dataframe>
+dfs[0]:5x2
+EmployeeID,Salary
+4,7000
+5,5500
+3,5000
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Which are the top 5 countries by sales?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 16:48:55 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 16:48:57 [INFO] Prompt used:
+            None
+            
+2024-07-25 16:48:57 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+df = dfs[0]
+df_sorted = df.sort_values(by='Salary', ascending=False)
+top_5_salaries = df_sorted.head()
+
+# Declare result var
+result = {
+    "type": "dataframe",
+    "value": top_5_salaries
+}
+            ```
+            
+2024-07-25 16:48:57 [INFO] Executing Step 4: CachePopulation
+2024-07-25 16:48:57 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 16:48:57 [INFO] 
+Code running:
+```
+df = dfs[0]
+df_sorted = df.sort_values(by='Salary', ascending=False)
+top_5_salaries = df_sorted.head()
+result = {'type': 'dataframe', 'value': top_5_salaries}
+        ```
+2024-07-25 16:48:57 [INFO] Executing Step 6: CodeExecution
+2024-07-25 16:48:57 [INFO] Executing Step 7: ResultValidation
+2024-07-25 16:48:57 [INFO] Answer: {'type': 'dataframe', 'value':    EmployeeID  Salary
+3           4    7000
+1           2    6000
+4           5    5500
+0           1    5000
+2           3    4500}
+2024-07-25 16:48:57 [INFO] Executing Step 8: ResultParsing
+2024-07-25 16:50:04 [INFO] Question: Make a bar chart for the data.
+2024-07-25 16:50:05 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 16:50:05 [INFO] Prompt ID: b248bec8-1812-4ae7-ab63-3c9d5204dd99
+2024-07-25 16:50:05 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 16:50:05 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 16:50:05 [INFO] Executing Step 1: CacheLookup
+2024-07-25 16:50:05 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 16:50:06 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Tiktok Spends,0.004879177,2019-2024,3
+Competitor1 Ad Spend Impact,-0.005196479,2021-2022,2
+Google Youtube Spends,0.00327342,2020-2021,10
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Make a bar chart for the data.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 16:50:06 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 16:50:10 [INFO] Prompt used:
+            None
+            
+2024-07-25 16:50:10 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Data
+data = {
+    "variable_name": ["Tiktok Spends", "Competitor1 Ad Spend Impact", "Google Youtube Spends"],
+    "value": [0.004879177, -0.005196479, 0.00327342]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Plotting the bar chart
+plt.figure(figsize=(10, 6))
+plt.bar(df["variable_name"], df["value"], color=['blue', 'red', 'green'])
+plt.xlabel("Variable Name")
+plt.ylabel("Value")
+plt.title("Bar Chart for Data")
+plt.savefig("bar_chart.png")  # Save the plot as png file
+plt.show()
+
+# Declare result variable
+result = {"type": "plot", "value": "bar_chart.png"}
+            ```
+            
+2024-07-25 16:50:10 [INFO] Executing Step 4: CachePopulation
+2024-07-25 16:50:10 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 16:50:10 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 16:50:10 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Tiktok Spends', 'Competitor1 Ad Spend Impact', 'Google Youtube Spends'], 'value': [0.004879177, -0.005196479, 0.00327342]}
+df = pd.DataFrame(data)
+plt.figure(figsize=(10, 6))
+plt.bar(df['variable_name'], df['value'], color=['blue', 'red', 'green'])
+plt.xlabel('Variable Name')
+plt.ylabel('Value')
+plt.title('Bar Chart for Data')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+plt.show()
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 16:50:10 [INFO] Executing Step 6: CodeExecution
+2024-07-25 16:50:54 [INFO] Executing Step 7: ResultValidation
+2024-07-25 16:50:54 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-25 16:50:54 [INFO] Executing Step 8: ResultParsing
+2024-07-25 16:53:34 [INFO] Question: WHat has the highest contribution apart from base ?
+2024-07-25 16:53:35 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 16:53:35 [INFO] Prompt ID: bf70aa8c-0617-416b-8596-a033c92930b5
+2024-07-25 16:53:35 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 16:53:35 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 16:53:35 [INFO] Executing Step 1: CacheLookup
+2024-07-25 16:53:35 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 16:53:36 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Competitor1 Ad Spend Impact,0.004335476,2022-2023,2
+Base,-0.011805126,2020-2021,5
+Branded Paid Search Spends,0.530068584,2019-2020,9
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ WHat has the highest contribution apart from base ?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 16:53:36 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 16:53:38 [INFO] Prompt used:
+            None
+            
+2024-07-25 16:53:38 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+highest_contributor = dfs[0][dfs[0]['variable_name'] != 'Base']['value'].idxmax()
+top_contributor = dfs[0].loc[highest_contributor, 'variable_name']
+
+result = {
+    "type": "string",
+    "value": f"The highest contribution apart from base is from {top_contributor}."
+}
+            ```
+            
+2024-07-25 16:53:38 [INFO] Executing Step 4: CachePopulation
+2024-07-25 16:53:38 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 16:53:38 [INFO] 
+Code running:
+```
+highest_contributor = dfs[0][dfs[0]['variable_name'] != 'Base']['value'].idxmax()
+top_contributor = dfs[0].loc[highest_contributor, 'variable_name']
+result = {'type': 'string', 'value': f'The highest contribution apart from base is from {top_contributor}.'}
+        ```
+2024-07-25 16:53:38 [INFO] Executing Step 6: CodeExecution
+2024-07-25 16:53:38 [INFO] Executing Step 7: ResultValidation
+2024-07-25 16:53:38 [INFO] Answer: {'type': 'string', 'value': 'The highest contribution apart from base is from TV1 Spends.'}
+2024-07-25 16:53:38 [INFO] Executing Step 8: ResultParsing
+2024-07-25 16:57:23 [INFO] Question: WHat has the highest contribution apart from base and what is its value in % ?
+2024-07-25 16:57:23 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 16:57:23 [INFO] Prompt ID: ca23199f-f67c-409e-bf77-7c5a65ca6c0c
+2024-07-25 16:57:23 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 16:57:23 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 16:57:23 [INFO] Executing Step 1: CacheLookup
+2024-07-25 16:57:23 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 16:57:25 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Base,0.012446191,2021-2022,5
+Branded Paid Search Spends,0.00020362,2022-2023,10
+Google Youtube Spends,0.349742922,2020-2021,9
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ WHat has the highest contribution apart from base and what is its value in % ?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 16:57:25 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 16:57:27 [INFO] Prompt used:
+            None
+            
+2024-07-25 16:57:27 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+highest_contribution = dfs[0][dfs[0]['variable_name'] != 'Base'].sort_values(by='value', ascending=False).iloc[0]
+
+result = {
+    "type": "string",
+    "value": f"The variable with the highest contribution apart from Base is {highest_contribution['variable_name']} with a value of {highest_contribution['value']*100:.2f}%."
+}
+            ```
+            
+2024-07-25 16:57:27 [INFO] Executing Step 4: CachePopulation
+2024-07-25 16:57:27 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 16:57:28 [INFO] 
+Code running:
+```
+highest_contribution = dfs[0][dfs[0]['variable_name'] != 'Base'].sort_values(by='value', ascending=False).iloc[0]
+result = {'type': 'string', 'value': f"The variable with the highest contribution apart from Base is {highest_contribution['variable_name']} with a value of {highest_contribution['value'] * 100:.2f}%."}
+        ```
+2024-07-25 16:57:28 [INFO] Executing Step 6: CodeExecution
+2024-07-25 16:57:28 [INFO] Executing Step 7: ResultValidation
+2024-07-25 16:57:28 [INFO] Answer: {'type': 'string', 'value': 'The variable with the highest contribution apart from Base is TV1 Spends with a value of 34.97%.'}
+2024-07-25 16:57:28 [INFO] Executing Step 8: ResultParsing
+2024-07-25 16:58:53 [INFO] Question: WHat has the highest contribution apart from base and what is its value in % ?
+2024-07-25 16:58:54 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 16:58:54 [INFO] Prompt ID: 443cf0fb-7ad3-47a6-ae3b-d404f744a941
+2024-07-25 16:58:54 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 16:58:54 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 16:58:54 [INFO] Executing Step 1: CacheLookup
+2024-07-25 16:58:54 [INFO] Using cached response
+2024-07-25 16:58:54 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 16:58:54 [INFO] Executing Step 2: Skipping...
+2024-07-25 16:58:54 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 16:58:54 [INFO] Executing Step 3: Skipping...
+2024-07-25 16:58:54 [INFO] Executing Step 4: CachePopulation
+2024-07-25 16:58:54 [INFO] Executing Step 4: Skipping...
+2024-07-25 16:58:54 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 16:58:54 [INFO] 
+Code running:
+```
+highest_contribution = dfs[0][dfs[0]['variable_name'] != 'Base'].sort_values(by='value', ascending=False).iloc[0]
+result = {'type': 'string', 'value': f"The variable with the highest contribution apart from Base is {highest_contribution['variable_name']} with a value of {highest_contribution['value'] * 100:.2f}%."}
+        ```
+2024-07-25 16:58:54 [INFO] Executing Step 6: CodeExecution
+2024-07-25 16:58:54 [INFO] Executing Step 7: ResultValidation
+2024-07-25 16:58:54 [INFO] Answer: {'type': 'string', 'value': 'The variable with the highest contribution apart from Base is TV1 Spends with a value of 34.97%.'}
+2024-07-25 16:58:54 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:00:32 [INFO] Question: What is the average of values of all the varibles in the year 2019-2020 ?
+2024-07-25 17:00:32 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:00:32 [INFO] Prompt ID: 418c2a51-c0c8-4d3c-b773-a8a9b46ab59c
+2024-07-25 17:00:32 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:00:32 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:00:32 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:00:32 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:00:34 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Twitter Ad Spends,0.089155662,2021-2022,10
+Competitor2 Ad Spend Impact,0.0,2019-2020,9
+Branded Paid Search Spends,0.175173391,2023-2024,11
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ What is the average of values of all the varibles in the year 2019-2020 ?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 17:00:34 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:00:37 [INFO] Prompt used:
+            None
+            
+2024-07-25 17:00:37 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+data = {'variable_name': ['Twitter Ad Spends', 'Competitor2 Ad Spend Impact', 'Branded Paid Search Spends'],
+        'value': [0.089155662, 0.0, 0.175173391],
+        'year': ['2021-2022', '2019-2020', '2023-2024'],
+        'rank': [10, 9, 11]}
+
+df = pd.DataFrame(data)
+
+average_2019_2020 = df[df['year'] == '2019-2020']['value'].mean()
+
+result = {"type": "number", "value": average_2019_2020}
+            ```
+            
+2024-07-25 17:00:37 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:00:37 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:00:37 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Twitter Ad Spends', 'Competitor2 Ad Spend Impact', 'Branded Paid Search Spends'], 'value': [0.089155662, 0.0, 0.175173391], 'year': ['2021-2022', '2019-2020', '2023-2024'], 'rank': [10, 9, 11]}
+df = dfs[0]
+average_2019_2020 = df[df['year'] == '2019-2020']['value'].mean()
+result = {'type': 'number', 'value': average_2019_2020}
+        ```
+2024-07-25 17:00:37 [INFO] Executing Step 6: CodeExecution
+2024-07-25 17:00:37 [INFO] Executing Step 7: ResultValidation
+2024-07-25 17:00:37 [INFO] Answer: {'type': 'number', 'value': np.float64(0.08318361636363636)}
+2024-07-25 17:00:37 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:01:37 [INFO] Question: Make a bar chart of all the variables and thier values.
+2024-07-25 17:01:38 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:01:38 [INFO] Prompt ID: f8c8a6f8-fd89-4367-87fe-ea8dc05d5578
+2024-07-25 17:01:38 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:01:38 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:01:38 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:01:38 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:01:40 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Twitter Ad Spends,0.00327342,2020-2021,10
+Competitor2 Ad Spend Impact,0.530068584,2019-2024,8
+Competitor1 Ad Spend Impact,0.517193941,2021-2022,6
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Make a bar chart of all the variables and thier values.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 17:01:40 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:01:42 [INFO] Prompt used:
+            None
+            
+2024-07-25 17:01:42 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Data
+data = {'variable_name': ['Twitter Ad Spends', 'Competitor2 Ad Spend Impact', 'Competitor1 Ad Spend Impact'],
+        'value': [0.00327342, 0.530068584, 0.517193941]}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.bar(df['variable_name'], df['value'], color='skyblue')
+plt.xlabel('Variable Name')
+plt.ylabel('Value')
+plt.title('Bar Chart of Variables and Their Values')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot as png
+plt.savefig('bar_chart.png')
+
+# Declare result variable
+result = {
+    "type": "plot",
+    "value": "bar_chart.png"
+}
+            ```
+            
+2024-07-25 17:01:42 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:01:42 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:01:42 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 17:01:42 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Twitter Ad Spends', 'Competitor2 Ad Spend Impact', 'Competitor1 Ad Spend Impact'], 'value': [0.00327342, 0.530068584, 0.517193941]}
+df = pd.DataFrame(data)
+plt.figure(figsize=(10, 6))
+plt.bar(df['variable_name'], df['value'], color='skyblue')
+plt.xlabel('Variable Name')
+plt.ylabel('Value')
+plt.title('Bar Chart of Variables and Their Values')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 17:01:42 [INFO] Executing Step 6: CodeExecution
+2024-07-25 17:01:43 [INFO] Executing Step 7: ResultValidation
+2024-07-25 17:01:43 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-25 17:01:43 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:02:21 [INFO] Question: Make a bar chart of all the variables and thier values in the year 2019-2020.
+2024-07-25 17:02:21 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:02:21 [INFO] Prompt ID: a925e57a-1278-4edf-9957-59ed34ddb117
+2024-07-25 17:02:21 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:02:21 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:02:21 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:02:21 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:02:23 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+OOH Spends,0.026464408,2019-2024,1
+Competitor1 Ad Spend Impact,0.1255673,2019-2020,10
+Google Youtube Spends,-0.094734076,2023-2024,11
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Make a bar chart of all the variables and thier values in the year 2019-2020.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 17:02:23 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:02:26 [INFO] Prompt used:
+            None
+            
+2024-07-25 17:02:26 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Filter the dataframe for the year 2019-2020
+filtered_df = dfs[0][dfs[0]['year'].str.contains('2019-2020')]
+
+# Plotting the bar chart
+plt.figure(figsize=(10, 6))
+plt.bar(filtered_df['variable_name'], filtered_df['value'])
+plt.xlabel('Variables')
+plt.ylabel('Values')
+plt.title('Variables and Values in 2019-2020')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plt.savefig('bar_chart_2019-2020.png')
+
+# Declare result variable as a dictionary
+result = {"type": "plot", "value": "bar_chart_2019-2020.png"}
+            ```
+            
+2024-07-25 17:02:26 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:02:26 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:02:26 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 17:02:27 [INFO] 
+Code running:
+```
+filtered_df = dfs[0][dfs[0]['year'].str.contains('2019-2020')]
+plt.figure(figsize=(10, 6))
+plt.bar(filtered_df['variable_name'], filtered_df['value'])
+plt.xlabel('Variables')
+plt.ylabel('Values')
+plt.title('Variables and Values in 2019-2020')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 17:02:27 [INFO] Executing Step 6: CodeExecution
+2024-07-25 17:02:27 [INFO] Executing Step 7: ResultValidation
+2024-07-25 17:02:27 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-25 17:02:27 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:06:45 [INFO] Question: Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+2024-07-25 17:06:46 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:06:46 [INFO] Prompt ID: 5368fbcd-76ca-4404-85d0-413a29876c64
+2024-07-25 17:06:46 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:06:46 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:06:46 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:06:46 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:06:47 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+TV2 Spends,0.012446191,2019-2020,3
+OOH Spends,0.026396265,2019-2024,1
+Base,-0.22003547,2023-2024,7
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 17:06:47 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:06:50 [INFO] Prompt used:
+            None
+            
+2024-07-25 17:06:50 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Extracting the required data for the year 2019-2020
+df = dfs[0][dfs[0]['year'] == '2019-2020']
+
+# Creating the bar chart
+plt.figure(figsize=(10,6))
+plt.barh(df['variable_name'], df['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variable Values in 2019-2020')
+plt.grid(axis='x', linestyle='--', alpha=0.6)
+plt.show()
+
+# Declare result variable as a dictionary containing the plot
+result = {"type": "plot", "value": "temp_chart.png"}
+            ```
+            
+2024-07-25 17:06:50 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:06:50 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:06:50 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 17:06:50 [INFO] 
+Code running:
+```
+df = dfs[0][dfs[0]['year'] == '2019-2020']
+plt.figure(figsize=(10, 6))
+plt.barh(df['variable_name'], df['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variable Values in 2019-2020')
+plt.grid(axis='x', linestyle='--', alpha=0.6)
+plt.show()
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 17:06:50 [INFO] Executing Step 6: CodeExecution
+2024-07-25 17:07:08 [INFO] Executing Step 7: ResultValidation
+2024-07-25 17:07:08 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-25 17:07:08 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:07:21 [INFO] Question: Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.Beautify it
+2024-07-25 17:07:21 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:07:21 [INFO] Prompt ID: aa5a86b2-480f-49b6-9ec9-fe1ab142eca2
+2024-07-25 17:07:21 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:07:21 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:07:21 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:07:21 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:07:23 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Competitor1 Ad Spend Impact,0.485454663,2021-2022,11
+Competitor2 Ad Spend Impact,0.089155662,2023-2024,10
+Twitter Ad Spends,0.349742922,2022-2023,1
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.Beautify it
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 17:07:23 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:07:27 [INFO] Prompt used:
+            None
+            
+2024-07-25 17:07:27 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Data
+data = {
+    "variable_name": ["Competitor1 Ad Spend Impact", "Competitor2 Ad Spend Impact", "Twitter Ad Spends"],
+    "value": [0.485454663, 0.089155662, 0.349742922],
+    "year": ["2021-2022", "2023-2024", "2022-2023"],
+    "rank": [11, 10, 1]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Filter data for year 2019-2020 (if needed)
+df_2019_2020 = df[df["year"].str.contains("2019|2020")]
+
+# Plotting
+plt.figure(figsize=(10, 6))
+bar_width = 0.5
+
+# Bar Chart
+plt.barh(df_2019_2020["variable_name"], df_2019_2020["value"], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variables and their Values in 2019-2020')
+plt.grid(axis='x', linestyle='--', alpha=0.6)
+plt.tight_layout()
+
+# Save the plot as an image
+plt.savefig("bar_chart.png")
+
+# Declare result variable
+result = {"type": "plot", "value": "bar_chart.png"}
+            ```
+            
+2024-07-25 17:07:27 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:07:27 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:07:27 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 17:07:27 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Competitor1 Ad Spend Impact', 'Competitor2 Ad Spend Impact', 'Twitter Ad Spends'], 'value': [0.485454663, 0.089155662, 0.349742922], 'year': ['2021-2022', '2023-2024', '2022-2023'], 'rank': [11, 10, 1]}
+df = dfs[0]
+df_2019_2020 = df[df['year'].str.contains('2019|2020')]
+plt.figure(figsize=(10, 6))
+bar_width = 0.5
+plt.barh(df_2019_2020['variable_name'], df_2019_2020['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variables and their Values in 2019-2020')
+plt.grid(axis='x', linestyle='--', alpha=0.6)
+plt.tight_layout()
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 17:07:27 [INFO] Executing Step 6: CodeExecution
+2024-07-25 17:07:27 [INFO] Executing Step 7: ResultValidation
+2024-07-25 17:07:27 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-25 17:07:27 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:20:09 [INFO] Question: Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+2024-07-25 17:20:10 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:20:10 [INFO] Prompt ID: cf5b4a15-cebf-4531-92e0-53a557f518fb
+2024-07-25 17:20:10 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:20:10 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:20:10 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:20:10 [INFO] Using cached response
+2024-07-25 17:20:10 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:20:10 [INFO] Executing Step 2: Skipping...
+2024-07-25 17:20:10 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:20:10 [INFO] Executing Step 3: Skipping...
+2024-07-25 17:20:10 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:20:10 [INFO] Executing Step 4: Skipping...
+2024-07-25 17:20:10 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:20:10 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 17:20:10 [INFO] 
+Code running:
+```
+df = dfs[0][dfs[0]['year'] == '2019-2020']
+plt.figure(figsize=(10, 6))
+plt.barh(df['variable_name'], df['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variable Values in 2019-2020')
+plt.grid(axis='x', linestyle='--', alpha=0.6)
+plt.show()
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 17:20:10 [INFO] Executing Step 6: CodeExecution
+2024-07-25 17:20:23 [INFO] Executing Step 7: ResultValidation
+2024-07-25 17:20:23 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-25 17:20:23 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:20:26 [INFO] Question: Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+2024-07-25 17:20:26 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:20:26 [INFO] Prompt ID: 42351fe6-abe9-4a1b-85e7-58acdbe9b4e4
+2024-07-25 17:20:26 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:20:26 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:20:26 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:20:26 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:20:27 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Twitter Ad Spends,0.0,2020-2021,3
+Google Youtube Spends,0.03465042,2021-2022,6
+Tiktok Spends,0.175173391,2019-2024,4
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 17:20:27 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:20:32 [INFO] Prompt used:
+            None
+            
+2024-07-25 17:20:32 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create a dataframe with the given data
+data = {'variable_name': ['Twitter Ad Spends', 'Google Youtube Spends', 'Tiktok Spends'],
+        'value': [0.0, 0.03465042, 0.175173391],
+        'year': ['2020-2021', '2021-2022', '2019-2024']}
+df = pd.DataFrame(data)
+
+# Filter the data for the year 2019-2020
+df_2019_2020 = df[df['year'].str.contains('2019-2020')]
+
+# Create a bar chart
+plt.figure(figsize=(10, 6))
+plt.barh(df_2019_2020['variable_name'], df_2019_2020['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variable Values in 2019-2020')
+plt.grid(axis='x')
+
+# Save the plot as a PNG file
+plt.savefig('bar_chart.png')
+
+# Declare result variable as a dictionary
+result = {"type": "plot", "value": "bar_chart.png"}
+            ```
+            
+2024-07-25 17:20:32 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:20:32 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:20:32 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 17:20:32 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Twitter Ad Spends', 'Google Youtube Spends', 'Tiktok Spends'], 'value': [0.0, 0.03465042, 0.175173391], 'year': ['2020-2021', '2021-2022', '2019-2024']}
+df = pd.DataFrame(data)
+df_2019_2020 = df[df['year'].str.contains('2019-2020')]
+plt.figure(figsize=(10, 6))
+plt.barh(df_2019_2020['variable_name'], df_2019_2020['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variable Values in 2019-2020')
+plt.grid(axis='x')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 17:20:32 [INFO] Executing Step 6: CodeExecution
+2024-07-25 17:20:33 [INFO] Executing Step 7: ResultValidation
+2024-07-25 17:20:33 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-25 17:20:33 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:20:34 [INFO] Question: Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+2024-07-25 17:20:34 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:20:34 [INFO] Prompt ID: 97e20a45-c9ff-44b1-8839-aeefa13025ca
+2024-07-25 17:20:34 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:20:34 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:20:34 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:20:34 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:20:36 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Twitter Ad Spends,0.0,2020-2021,3
+Google Youtube Spends,0.03465042,2021-2022,6
+Tiktok Spends,0.175173391,2019-2024,4
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 17:20:36 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:20:39 [INFO] Prompt used:
+            None
+            
+2024-07-25 17:20:39 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Extract the relevant data for the year 2019-2020
+data = {'variable_name': ['Twitter Ad Spends', 'Google Youtube Spends', 'Tiktok Spends'],
+        'value': [0.0, 0.0, 0.175173391]}
+
+df = pd.DataFrame(data)
+
+# Create a vertical bar chart
+plt.figure(figsize=(10, 6))
+plt.barh(df['variable_name'], df['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variables and their values in 2019-2020')
+plt.show()
+
+# Declare result variable
+result = {"type": "plot", "value": "bar_chart.png"}
+            ```
+            
+2024-07-25 17:20:39 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:20:39 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:20:39 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 17:20:39 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Twitter Ad Spends', 'Google Youtube Spends', 'Tiktok Spends'], 'value': [0.0, 0.0, 0.175173391]}
+df = pd.DataFrame(data)
+plt.figure(figsize=(10, 6))
+plt.barh(df['variable_name'], df['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variables and their values in 2019-2020')
+plt.show()
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 17:20:39 [INFO] Executing Step 6: CodeExecution
+2024-07-25 17:20:43 [INFO] Executing Step 7: ResultValidation
+2024-07-25 17:20:43 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-25 17:20:43 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:20:44 [INFO] Question: Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+2024-07-25 17:20:44 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:20:44 [INFO] Prompt ID: 0dd5c195-270d-4a04-a015-c473ed5b0bc7
+2024-07-25 17:20:44 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:20:44 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:20:44 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:20:44 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:20:46 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Twitter Ad Spends,0.0,2020-2021,3
+Google Youtube Spends,0.03465042,2021-2022,6
+Tiktok Spends,0.175173391,2019-2024,4
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 17:20:46 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:20:50 [INFO] Prompt used:
+            None
+            
+2024-07-25 17:20:50 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Dataframe with given values
+data = {
+    'variable_name': ['Twitter Ad Spends', 'Google Youtube Spends', 'Tiktok Spends'],
+    'value': [0.0, 0.03465042, 0.175173391],
+    'year': ['2020-2021', '2021-2022', '2019-2024']
+}
+
+df = pd.DataFrame(data)
+
+# Filter data for the year 2019-2020
+df_2019_2020 = df[df['year'].str.contains('2019')]
+
+# Plotting the bar chart
+plt.figure(figsize=(10, 6))
+plt.barh(df_2019_2020['variable_name'], df_2019_2020['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variables and their values for the year 2019-2020')
+plt.grid(axis='x')
+
+# Save the plot as a PNG file
+plt.savefig('bar_chart.png')
+
+# Declare result variable
+result = {"type": "plot", "value": "bar_chart.png"}
+            ```
+            
+2024-07-25 17:20:50 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:20:50 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:20:50 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 17:20:50 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Twitter Ad Spends', 'Google Youtube Spends', 'Tiktok Spends'], 'value': [0.0, 0.03465042, 0.175173391], 'year': ['2020-2021', '2021-2022', '2019-2024']}
+df = pd.DataFrame(data)
+df_2019_2020 = df[df['year'].str.contains('2019')]
+plt.figure(figsize=(10, 6))
+plt.barh(df_2019_2020['variable_name'], df_2019_2020['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variables and their values for the year 2019-2020')
+plt.grid(axis='x')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 17:20:50 [INFO] Executing Step 6: CodeExecution
+2024-07-25 17:20:50 [INFO] Executing Step 7: ResultValidation
+2024-07-25 17:20:50 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-25 17:20:50 [INFO] Executing Step 8: ResultParsing
+2024-07-25 17:20:51 [INFO] Question: Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+2024-07-25 17:20:51 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-25 17:20:51 [INFO] Prompt ID: 1dd67884-a5f3-4a92-a498-ec3a772043fd
+2024-07-25 17:20:51 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-25 17:20:51 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-25 17:20:51 [INFO] Executing Step 1: CacheLookup
+2024-07-25 17:20:51 [INFO] Executing Step 2: PromptGeneration
+2024-07-25 17:20:53 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Twitter Ad Spends,0.0,2020-2021,3
+Google Youtube Spends,0.03465042,2021-2022,6
+Tiktok Spends,0.175173391,2019-2024,4
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Make a bar chart of all the variables and thier values in the year 2019-2020Can you make this chart in a way that the variables are on vertical line and on parralel to them the bar chart is made.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-25 17:20:53 [INFO] Executing Step 3: CodeGenerator
+2024-07-25 17:20:56 [INFO] Prompt used:
+            None
+            
+2024-07-25 17:20:56 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Data
+data = {
+    "variable_name": ["Twitter Ad Spends", "Google Youtube Spends", "Tiktok Spends"],
+    "value": [0.0, 0.03465042, 0.175173391],
+    "year": ["2020-2021", "2021-2022", "2019-2024"],
+    "rank": [3, 6, 4]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Filter data for year 2019-2020
+df_2019_2020 = df[df["year"].str.contains("2019|2020")]
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.barh(df_2019_2020["variable_name"], df_2019_2020["value"], color="skyblue")
+plt.xlabel("Values")
+plt.ylabel("Variables")
+plt.title("Variables and Their Values in 2019-2020")
+plt.grid(axis="x")
+plt.show()
+
+# Declare result var
+result = {"type": "plot", "value": "bar_chart.png"}
+            ```
+            
+2024-07-25 17:20:56 [INFO] Executing Step 4: CachePopulation
+2024-07-25 17:20:56 [INFO] Executing Step 5: CodeCleaning
+2024-07-25 17:20:56 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-25 17:20:56 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Twitter Ad Spends', 'Google Youtube Spends', 'Tiktok Spends'], 'value': [0.0, 0.03465042, 0.175173391], 'year': ['2020-2021', '2021-2022', '2019-2024'], 'rank': [3, 6, 4]}
+df = dfs[0]
+df_2019_2020 = df[df['year'].str.contains('2019|2020')]
+plt.figure(figsize=(10, 6))
+plt.barh(df_2019_2020['variable_name'], df_2019_2020['value'], color='skyblue')
+plt.xlabel('Values')
+plt.ylabel('Variables')
+plt.title('Variables and Their Values in 2019-2020')
+plt.grid(axis='x')
+plt.show()
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-25 17:20:56 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:08:24 [INFO] Question: can you tell me who has the largest spends apart from the base
+2024-07-26 16:08:25 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:08:25 [INFO] Prompt ID: 74b71fd8-5d27-4390-83ce-69b40c61d69b
+2024-07-26 16:08:25 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:08:25 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:08:25 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:08:25 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:08:26 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Competitor1 Ad Spend Impact,0.001272178,2020-2021,8
+Tiktok Spends,9.92e-14,2019-2020,6
+Google Youtube Spends,-0.005182633,2022-2023,9
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ can you tell me who has the largest spends apart from the base
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:08:26 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:08:29 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:08:29 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+largest_spend = None
+max_spend = 0
+
+for df in dfs:
+    largest_spend_in_df = df[df['value'] != 0]['value'].max()
+    if largest_spend_in_df > max_spend:
+        max_spend = largest_spend_in_df
+        largest_spend = df[df['value'] == largest_spend_in_df]['variable_name'].values[0]
+
+result = {"type": "string", "value": f"The competitor with the largest spends apart from the base is {largest_spend}."}
+            ```
+            
+2024-07-26 16:08:29 [INFO] Executing Step 4: CachePopulation
+2024-07-26 16:08:29 [INFO] Executing Step 5: CodeCleaning
+2024-07-26 16:08:29 [INFO] 
+Code running:
+```
+largest_spend = None
+max_spend = 0
+for df in dfs:
+    largest_spend_in_df = df[df['value'] != 0]['value'].max()
+    if largest_spend_in_df > max_spend:
+        max_spend = largest_spend_in_df
+        largest_spend = df[df['value'] == largest_spend_in_df]['variable_name'].values[0]
+result = {'type': 'string', 'value': f'The competitor with the largest spends apart from the base is {largest_spend}.'}
+        ```
+2024-07-26 16:08:29 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:08:29 [INFO] Executing Step 7: ResultValidation
+2024-07-26 16:08:29 [INFO] Answer: {'type': 'string', 'value': 'The competitor with the largest spends apart from the base is Base.'}
+2024-07-26 16:08:29 [INFO] Executing Step 8: ResultParsing
+2024-07-26 16:08:30 [INFO] Question: can you tell me who has the largest spends apart from the base
+2024-07-26 16:08:30 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:08:30 [INFO] Prompt ID: fdad76b6-1639-4ec4-9528-53eb9cb7bdb4
+2024-07-26 16:08:30 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:08:30 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:08:30 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:08:30 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:08:31 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Competitor1 Ad Spend Impact,0.001272178,2020-2021,8
+Tiktok Spends,9.92e-14,2019-2020,6
+Google Youtube Spends,-0.005182633,2022-2023,9
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ can you tell me who has the largest spends apart from the base
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:08:31 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:08:35 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:08:35 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Data
+data = {'variable_name': ['Competitor1 Ad Spend Impact', 'Tiktok Spends', 'Google Youtube Spends'],
+        'value': [0.001272178, 9.92e-14, -0.005182633],
+        'year': ['2020-2021', '2019-2020', '2022-2023'],
+        'rank': [8, 6, 9]}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Filter out the largest spends apart from the base
+largest_spends = df[df['value'] == df['value'].nlargest(2).iloc[1]]
+
+result = {"type": "dataframe", "value": largest_spends}
+            ```
+            
+2024-07-26 16:08:35 [INFO] Executing Step 4: CachePopulation
+2024-07-26 16:08:35 [INFO] Executing Step 5: CodeCleaning
+2024-07-26 16:08:35 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Competitor1 Ad Spend Impact', 'Tiktok Spends', 'Google Youtube Spends'], 'value': [0.001272178, 9.92e-14, -0.005182633], 'year': ['2020-2021', '2019-2020', '2022-2023'], 'rank': [8, 6, 9]}
+df = dfs[0]
+largest_spends = df[df['value'] == df['value'].nlargest(2).iloc[1]]
+result = {'type': 'dataframe', 'value': largest_spends}
+        ```
+2024-07-26 16:08:35 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:08:35 [INFO] Executing Step 7: ResultValidation
+2024-07-26 16:08:35 [INFO] Answer: {'type': 'dataframe', 'value':    variable_name     value       year  rank
+33          Base  0.601349  2022-2023     1}
+2024-07-26 16:08:35 [INFO] Executing Step 8: ResultParsing
+2024-07-26 16:08:36 [INFO] Question: can you tell me who has the largest spends apart from the base
+2024-07-26 16:08:36 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:08:36 [INFO] Prompt ID: ca61a829-5bc0-4352-bb44-07bcea8af29e
+2024-07-26 16:08:36 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:08:36 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:08:36 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:08:36 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:08:37 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Competitor1 Ad Spend Impact,0.001272178,2020-2021,8
+Tiktok Spends,9.92e-14,2019-2020,6
+Google Youtube Spends,-0.005182633,2022-2023,9
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ can you tell me who has the largest spends apart from the base
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:08:37 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:08:41 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:08:41 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Dataframe
+data = {
+    'variable_name': ['Competitor1 Ad Spend Impact', 'Tiktok Spends', 'Google Youtube Spends'],
+    'value': [0.001272178, 9.92e-14, -0.005182633],
+    'year': ['2020-2021', '2019-2020', '2022-2023'],
+    'rank': [8, 6, 9]
+}
+
+df = pd.DataFrame(data)
+
+# Find the competitor with the largest spends apart from the base
+largest_spend = df[df['value'] == df['value'].max()]['variable_name'].values[0]
+
+result = {"type": "string", "value": f"The competitor with the largest spends apart from the base is {largest_spend}."}
+            ```
+            
+2024-07-26 16:08:41 [INFO] Executing Step 4: CachePopulation
+2024-07-26 16:08:41 [INFO] Executing Step 5: CodeCleaning
+2024-07-26 16:08:41 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Competitor1 Ad Spend Impact', 'Tiktok Spends', 'Google Youtube Spends'], 'value': [0.001272178, 9.92e-14, -0.005182633], 'year': ['2020-2021', '2019-2020', '2022-2023'], 'rank': [8, 6, 9]}
+df = dfs[0]
+largest_spend = df[df['value'] == df['value'].max()]['variable_name'].values[0]
+result = {'type': 'string', 'value': f'The competitor with the largest spends apart from the base is {largest_spend}.'}
+        ```
+2024-07-26 16:08:41 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:08:41 [INFO] Executing Step 7: ResultValidation
+2024-07-26 16:08:41 [INFO] Answer: {'type': 'string', 'value': 'The competitor with the largest spends apart from the base is Base.'}
+2024-07-26 16:08:41 [INFO] Executing Step 8: ResultParsing
+2024-07-26 16:08:42 [INFO] Question: can you tell me who has the largest spends apart from the base
+2024-07-26 16:08:42 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:08:42 [INFO] Prompt ID: da9c19f1-9013-45fc-8063-a819e1d4c830
+2024-07-26 16:08:42 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:08:42 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:08:42 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:08:42 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:08:44 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Competitor1 Ad Spend Impact,0.001272178,2020-2021,8
+Tiktok Spends,9.92e-14,2019-2020,6
+Google Youtube Spends,-0.005182633,2022-2023,9
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ can you tell me who has the largest spends apart from the base
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:08:44 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:08:49 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:08:49 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Read the data from the DataFrame
+data = {'variable_name': ['Competitor1 Ad Spend Impact', 'Tiktok Spends', 'Google Youtube Spends'],
+        'value': [0.001272178, 9.92e-14, -0.005182633],
+        'year': ['2020-2021', '2019-2020', '2022-2023'],
+        'rank': [8, 6, 9]}
+
+df = pd.DataFrame(data)
+
+# Find the competitor with the largest spends apart from the base
+largest_spend = df[df['value'] == df['value'].max()]['variable_name'].values[0]
+
+# Declare result variable
+result = {"type": "string", "value": f"The competitor with the largest spends apart from the base is {largest_spend}."}
+            ```
+            
+2024-07-26 16:08:49 [INFO] Executing Step 4: CachePopulation
+2024-07-26 16:08:49 [INFO] Executing Step 5: CodeCleaning
+2024-07-26 16:08:49 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Competitor1 Ad Spend Impact', 'Tiktok Spends', 'Google Youtube Spends'], 'value': [0.001272178, 9.92e-14, -0.005182633], 'year': ['2020-2021', '2019-2020', '2022-2023'], 'rank': [8, 6, 9]}
+df = dfs[0]
+largest_spend = df[df['value'] == df['value'].max()]['variable_name'].values[0]
+result = {'type': 'string', 'value': f'The competitor with the largest spends apart from the base is {largest_spend}.'}
+        ```
+2024-07-26 16:08:49 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:08:49 [INFO] Executing Step 7: ResultValidation
+2024-07-26 16:08:49 [INFO] Answer: {'type': 'string', 'value': 'The competitor with the largest spends apart from the base is Base.'}
+2024-07-26 16:08:49 [INFO] Executing Step 8: ResultParsing
+2024-07-26 16:08:49 [INFO] Question: can you tell me who has the largest spends apart from the base
+2024-07-26 16:08:49 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:08:49 [INFO] Prompt ID: 19b22beb-0d38-4bfa-b47e-376ae2a03f27
+2024-07-26 16:08:49 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:08:49 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:08:49 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:08:49 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:08:51 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Competitor1 Ad Spend Impact,0.001272178,2020-2021,8
+Tiktok Spends,9.92e-14,2019-2020,6
+Google Youtube Spends,-0.005182633,2022-2023,9
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ can you tell me who has the largest spends apart from the base
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:08:51 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:08:55 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:08:55 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Dataframe
+df = pd.DataFrame({
+    'variable_name': ['Competitor1 Ad Spend Impact', 'Tiktok Spends', 'Google Youtube Spends'],
+    'value': [0.001272178, 9.92e-14, -0.005182633],
+    'year': ['2020-2021', '2019-2020', '2022-2023'],
+    'rank': [8, 6, 9]
+})
+
+# Find competitor with largest spends apart from the base
+largest_spend = df[df['value'] != 0].nlargest(1, 'value')
+
+result = {
+    "type": "string",
+    "value": f"The competitor with the largest spends apart from the base is {largest_spend['variable_name'].values[0]}"
+}
+            ```
+            
+2024-07-26 16:08:55 [INFO] Executing Step 4: CachePopulation
+2024-07-26 16:08:55 [INFO] Executing Step 5: CodeCleaning
+2024-07-26 16:08:55 [INFO] 
+Code running:
+```
+df = dfs[0]
+largest_spend = df[df['value'] != 0].nlargest(1, 'value')
+result = {'type': 'string', 'value': f"The competitor with the largest spends apart from the base is {largest_spend['variable_name'].values[0]}"}
+        ```
+2024-07-26 16:08:55 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:08:55 [INFO] Executing Step 7: ResultValidation
+2024-07-26 16:08:55 [INFO] Answer: {'type': 'string', 'value': 'The competitor with the largest spends apart from the base is Base'}
+2024-07-26 16:08:55 [INFO] Executing Step 8: ResultParsing
+2024-07-26 16:08:56 [INFO] Question: can you tell me who has the largest spends apart from the base
+2024-07-26 16:08:56 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:08:56 [INFO] Prompt ID: d252d038-f2f4-49a0-a8ac-c9ca164cb22f
+2024-07-26 16:08:56 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:08:56 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:08:56 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:08:56 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:08:58 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Competitor1 Ad Spend Impact,0.001272178,2020-2021,8
+Tiktok Spends,9.92e-14,2019-2020,6
+Google Youtube Spends,-0.005182633,2022-2023,9
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ can you tell me who has the largest spends apart from the base
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:08:58 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:09:41 [INFO] Question: who is the maximum value apart from base
+2024-07-26 16:09:42 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:09:42 [INFO] Prompt ID: 35c5aa29-7a35-4114-857c-acf4fb6e3a4d
+2024-07-26 16:09:42 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:09:42 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:09:42 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:09:42 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:09:43 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Competitor1 Ad Spend Impact,0.206939443,2019-2020,9
+Twitter Ad Spends,0.530068584,2020-2021,4
+OOH Spends,0.066385434,2022-2023,3
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ who is the maximum value apart from base
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:09:43 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:09:46 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:09:46 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+max_value = dfs[0]['value'].max()
+max_value_row = dfs[0][dfs[0]['value'] == max_value]
+
+# Declare result var
+result = {
+    "type": "string",
+    "value": f"The maximum value apart from base is {max_value} for '{max_value_row['variable_name'].values[0]}' in the year {max_value_row['year'].values[0]} with a rank of {max_value_row['rank'].values[0]}."
+}
+            ```
+            
+2024-07-26 16:09:46 [INFO] Executing Step 4: CachePopulation
+2024-07-26 16:09:46 [INFO] Executing Step 5: CodeCleaning
+2024-07-26 16:09:46 [INFO] 
+Code running:
+```
+max_value = dfs[0]['value'].max()
+max_value_row = dfs[0][dfs[0]['value'] == max_value]
+result = {'type': 'string', 'value': f"The maximum value apart from base is {max_value} for '{max_value_row['variable_name'].values[0]}' in the year {max_value_row['year'].values[0]} with a rank of {max_value_row['rank'].values[0]}."}
+        ```
+2024-07-26 16:09:46 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:09:46 [INFO] Executing Step 7: ResultValidation
+2024-07-26 16:09:46 [INFO] Answer: {'type': 'string', 'value': "The maximum value apart from base is 0.619056165 for 'Base' in the year 2023-2024 with a rank of 1."}
+2024-07-26 16:09:46 [INFO] Executing Step 8: ResultParsing
+2024-07-26 16:10:49 [INFO] Question: draw a pie chart between the variable name and the value
+2024-07-26 16:10:49 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:10:49 [INFO] Prompt ID: 3812ab40-e81c-4354-8653-30fd7509b16d
+2024-07-26 16:10:49 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:10:49 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:10:49 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:10:49 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:10:51 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Base,1.2500000000000001e-29,2019-2020,2
+OOH Spends,0.026396265,2021-2022,7
+TV1 Spends,0.517193941,2023-2024,11
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ draw a pie chart between the variable name and the value
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:10:51 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:10:54 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:10:54 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+df = dfs[0]
+
+# Create a pie chart
+plt.figure(figsize=(8, 6))
+plt.pie(df['value'], labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.title('Distribution of Variable Values')
+
+# Save the plot as a PNG file
+plt.savefig('pie_chart.png')
+
+# Declare result var
+result = { "type": "plot", "value": "pie_chart.png" }
+            ```
+            
+2024-07-26 16:10:54 [INFO] Executing Step 4: CachePopulation
+2024-07-26 16:10:54 [INFO] Executing Step 5: CodeCleaning
+2024-07-26 16:10:54 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-26 16:10:54 [INFO] 
+Code running:
+```
+df = dfs[0]
+plt.figure(figsize=(8, 6))
+plt.pie(df['value'], labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.title('Distribution of Variable Values')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-26 16:10:54 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:10:54 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 3, in <module>
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\pyplot.py", line 3762, in pie
+    return gca().pie(
+           ^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\__init__.py", line 1486, in inner
+    return func(
+           ^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\axes\_axes.py", line 3285, in pie
+    raise ValueError("Wedge sizes 'x' must be non negative values")
+ValueError: Wedge sizes 'x' must be non negative values
+
+2024-07-26 16:10:54 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-07-26 16:10:54 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-26 16:10:54 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-26 16:10:54 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Base,1.2500000000000001e-29,2019-2020,2
+OOH Spends,0.026396265,2021-2022,7
+TV1 Spends,0.517193941,2023-2024,11
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ draw a pie chart between the variable name and the value
+
+You generated this python code:
+df = dfs[0]
+plt.figure(figsize=(8, 6))
+plt.pie(df['value'], labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.title('Distribution of Variable Values')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 3, in <module>
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\pyplot.py", line 3762, in pie
+    return gca().pie(
+           ^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\__init__.py", line 1486, in inner
+    return func(
+           ^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\axes\_axes.py", line 3285, in pie
+    raise ValueError("Wedge sizes 'x' must be non negative values")
+ValueError: Wedge sizes 'x' must be non negative values
+
+
+Fix the python code above and return the new python code:
+2024-07-26 16:10:54 [INFO] Executing Step 1: CodeGenerator
+2024-07-26 16:10:57 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:10:57 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+df = dfs[0]
+plt.figure(figsize=(8, 6))
+plt.pie(df['value'], labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.title('Distribution of Variable Values')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-26 16:10:57 [INFO] Executing Step 2: CodeCleaning
+2024-07-26 16:10:57 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-26 16:10:57 [INFO] 
+Code running:
+```
+df = dfs[0]
+plt.figure(figsize=(8, 6))
+plt.pie(df['value'], labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.title('Distribution of Variable Values')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-26 16:10:57 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 3, in <module>
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\pyplot.py", line 3762, in pie
+    return gca().pie(
+           ^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\__init__.py", line 1486, in inner
+    return func(
+           ^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\axes\_axes.py", line 3285, in pie
+    raise ValueError("Wedge sizes 'x' must be non negative values")
+ValueError: Wedge sizes 'x' must be non negative values
+
+2024-07-26 16:10:57 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-07-26 16:10:57 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-07-26 16:10:57 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-07-26 16:10:57 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Base,1.2500000000000001e-29,2019-2020,2
+OOH Spends,0.026396265,2021-2022,7
+TV1 Spends,0.517193941,2023-2024,11
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ draw a pie chart between the variable name and the value
+
+You generated this python code:
+df = dfs[0]
+plt.figure(figsize=(8, 6))
+plt.pie(df['value'], labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.title('Distribution of Variable Values')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 3, in <module>
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\pyplot.py", line 3762, in pie
+    return gca().pie(
+           ^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\__init__.py", line 1486, in inner
+    return func(
+           ^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\.venv\Lib\site-packages\matplotlib\axes\_axes.py", line 3285, in pie
+    raise ValueError("Wedge sizes 'x' must be non negative values")
+ValueError: Wedge sizes 'x' must be non negative values
+
+
+Fix the python code above and return the new python code:
+2024-07-26 16:10:57 [INFO] Executing Step 1: CodeGenerator
+2024-07-26 16:11:02 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:11:02 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+df = dfs[0]
+plt.figure(figsize=(8, 6))
+plt.pie(df['value'].abs(), labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.title('Distribution of Variable Values')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+            ```
+            
+2024-07-26 16:11:02 [INFO] Executing Step 2: CodeCleaning
+2024-07-26 16:11:02 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-26 16:11:02 [INFO] 
+Code running:
+```
+df = dfs[0]
+plt.figure(figsize=(8, 6))
+plt.pie(df['value'].abs(), labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.title('Distribution of Variable Values')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-26 16:11:02 [INFO] Executing Step 7: ResultValidation
+2024-07-26 16:11:02 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-26 16:11:02 [INFO] Executing Step 8: ResultParsing
+2024-07-26 16:19:59 [INFO] Question: can you make a proper bar chart for the values versus the variable names
+2024-07-26 16:19:59 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:19:59 [INFO] Prompt ID: d7ab7a8d-245f-497d-bea8-6b0285b4d242
+2024-07-26 16:19:59 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:19:59 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:19:59 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:19:59 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:20:01 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Tiktok Spends,0.071434488,2020-2021,4
+TV1 Spends,0.206939443,2019-2024,7
+Competitor1 Ad Spend Impact,0.102664866,2019-2020,6
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ can you make a proper bar chart for the values versus the variable names
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:20:01 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:20:04 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:20:04 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+data = {
+    "variable_name": ["Tiktok Spends", "TV1 Spends", "Competitor1 Ad Spend Impact"],
+    "value": [0.071434488, 0.206939443, 0.102664866]
+}
+
+df = pd.DataFrame(data)
+
+# Create a bar chart
+plt.figure(figsize=(8, 6))
+plt.bar(df["variable_name"], df["value"], color='skyblue')
+plt.xlabel('Variable Names')
+plt.ylabel('Values')
+plt.title('Bar Chart of Values vs Variable Names')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the chart as a png file
+plt.savefig("bar_chart.png")
+
+# Declare result var
+result = {
+    "type": "plot",
+    "value": "bar_chart.png"
+}
+
+result
+            ```
+            
+2024-07-26 16:20:04 [INFO] Executing Step 4: CachePopulation
+2024-07-26 16:20:04 [INFO] Executing Step 5: CodeCleaning
+2024-07-26 16:20:04 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-26 16:20:04 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Tiktok Spends', 'TV1 Spends', 'Competitor1 Ad Spend Impact'], 'value': [0.071434488, 0.206939443, 0.102664866]}
+df = pd.DataFrame(data)
+plt.figure(figsize=(8, 6))
+plt.bar(df['variable_name'], df['value'], color='skyblue')
+plt.xlabel('Variable Names')
+plt.ylabel('Values')
+plt.title('Bar Chart of Values vs Variable Names')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+result
+        ```
+2024-07-26 16:20:04 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:20:04 [INFO] Executing Step 7: ResultValidation
+2024-07-26 16:20:04 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-26 16:20:04 [INFO] Executing Step 8: ResultParsing
+2024-07-26 16:49:09 [INFO] Question: make a pie chart
+2024-07-26 16:49:09 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 16:49:09 [INFO] Prompt ID: 38db4a29-3ecd-4c61-a911-a45bbde6c5de
+2024-07-26 16:49:09 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 16:49:09 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 16:49:09 [INFO] Executing Step 1: CacheLookup
+2024-07-26 16:49:09 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 16:49:11 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Branded Paid Search Spends,0.00125704,2019-2024,7
+Google Youtube Spends,0.089155662,2020-2021,10
+Twitter Ad Spends,0.002831581,2019-2020,6
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ make a pie chart
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 16:49:11 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 16:49:14 [INFO] Prompt used:
+            None
+            
+2024-07-26 16:49:14 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+data = {'variable_name': ['Branded Paid Search Spends', 'Google Youtube Spends', 'Twitter Ad Spends'],
+        'value': [0.00125704, 0.089155662, 0.002831581]}
+
+df = pd.DataFrame(data)
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(df['value'], labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+# Save the plot as a png file
+plt.savefig('pie_chart.png')
+
+# Declare result variable
+result = {
+    "type": "plot",
+    "value": "pie_chart.png"
+}
+            ```
+            
+2024-07-26 16:49:14 [INFO] Executing Step 4: CachePopulation
+2024-07-26 16:49:14 [INFO] Executing Step 5: CodeCleaning
+2024-07-26 16:49:14 [INFO] Saving charts to C:\Users\hp\OneDrive\Desktop\Contribution_charts_MMM\exports\charts\temp_chart.png
+2024-07-26 16:49:14 [INFO] 
+Code running:
+```
+data = {'variable_name': ['Branded Paid Search Spends', 'Google Youtube Spends', 'Twitter Ad Spends'], 'value': [0.00125704, 0.089155662, 0.002831581]}
+df = pd.DataFrame(data)
+plt.figure(figsize=(8, 8))
+plt.pie(df['value'], labels=df['variable_name'], autopct='%1.1f%%', startangle=140)
+plt.axis('equal')
+plt.savefig('C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+        ```
+2024-07-26 16:49:14 [INFO] Executing Step 6: CodeExecution
+2024-07-26 16:49:14 [INFO] Executing Step 7: ResultValidation
+2024-07-26 16:49:14 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/hp/OneDrive/Desktop/Contribution_charts_MMM/exports/charts/temp_chart.png'}
+2024-07-26 16:49:14 [INFO] Executing Step 8: ResultParsing
+2024-07-26 17:59:58 [INFO] Question: make a bar chart on variables variable names and values
+2024-07-26 17:59:58 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 17:59:58 [INFO] Prompt ID: eaf37c51-f3f0-4acb-91e9-94366a3a5627
+2024-07-26 17:59:58 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 17:59:58 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 17:59:58 [INFO] Executing Step 1: CacheLookup
+2024-07-26 17:59:58 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 18:00:00 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Meta Spends,0.005764648,2022-2023,11
+Branded Paid Search Spends,0.00020362,2019-2020,9
+Twitter Ad Spends,0.026464408,2023-2024,2
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ make a bar chart on variables variable names and values
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 18:00:00 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 18:00:01 [ERROR] Pipeline failed on step 3: Your LLM inference limit has been reached. To upgrade, please contact us at https://forms.gle/JEUqkwuTqFZjhP7h8
+2024-07-26 18:01:29 [INFO] Question: what are metal spends contribution in the year 2022
+2024-07-26 18:01:30 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 18:01:30 [INFO] Prompt ID: 20547ae3-9a75-4b46-9813-2c43b240448d
+2024-07-26 18:01:30 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 18:01:30 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 18:01:30 [INFO] Executing Step 1: CacheLookup
+2024-07-26 18:01:30 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 18:01:32 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+Twitter Ad Spends,0.044122486,2019-2024,10
+TV1 Spends,-0.00229363,2019-2020,7
+Base,0.020088117,2022-2023,4
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ what are metal spends contribution in the year 2022
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 18:01:32 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 18:01:32 [ERROR] Pipeline failed on step 3: Your LLM inference limit has been reached. To upgrade, please contact us at https://forms.gle/JEUqkwuTqFZjhP7h8
+2024-07-26 18:02:39 [INFO] Question: what are meta yearly spends in the year 2022
+2024-07-26 18:02:40 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-07-26 18:02:40 [INFO] Prompt ID: f1546b57-b971-476b-a871-5f1ebd92a0f0
+2024-07-26 18:02:40 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-07-26 18:02:40 [INFO] Executing Step 0: ValidatePipelineInput
+2024-07-26 18:02:40 [INFO] Executing Step 1: CacheLookup
+2024-07-26 18:02:40 [INFO] Executing Step 2: PromptGeneration
+2024-07-26 18:02:41 [INFO] Using prompt: <dataframe>
+dfs[0]:66x4
+variable_name,value,year,rank
+TV1 Spends,0.066385434,2019-2020,5
+Competitor2 Ad Spend Impact,0.349742922,2021-2022,3
+Base,-0.005196479,2023-2024,6
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ what are meta yearly spends in the year 2022
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-07-26 18:02:41 [INFO] Executing Step 3: CodeGenerator
+2024-07-26 18:02:42 [ERROR] Pipeline failed on step 3: Your LLM inference limit has been reached. To upgrade, please contact us at https://forms.gle/JEUqkwuTqFZjhP7h8
