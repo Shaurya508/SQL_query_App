@@ -121,7 +121,6 @@ multiprocess==0.70.16
 mypy-extensions==1.0.0
 mysql==0.0.3
 mysql-connector-python==9.0.0
-mysqlclient==2.2.4
 nest-asyncio==1.6.0
 networkx==3.3
 nltk==3.9.1
